@@ -1,5 +1,30 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color: #020402;
+  color: #fff;
+}
+
+header{
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 60%;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+a{
+  margin: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #3f978d;
 }
