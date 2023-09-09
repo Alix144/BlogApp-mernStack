@@ -1,4 +1,5 @@
-import Auth from "./componenets/Auth";
+import Login from "./componenets/Login";
+import Signup from "./componenets/Signup";
 import Blogs from "./componenets/Blogs";
 import UserBlogs from "./componenets/UserBlogs";
 import BlogDetail from "./componenets/BlogDetail";
@@ -14,7 +15,8 @@ function App() {
     <div className="App">
       <Header/>
       <Routes>
-            <Route path="/auth" element={<Auth />}/>
+            <Route path="/login" element={<Login />}/>
+            <Route path="/signup" element={<Signup />}/>
             <Route path="/blogs" element={<Blogs />}/>
             <Route path="/myBlogs" element={<UserBlogs />}/>
             <Route path="/myBlogs/:id" element={<BlogDetail />}/>
