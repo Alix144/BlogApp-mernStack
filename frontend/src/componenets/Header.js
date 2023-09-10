@@ -10,7 +10,8 @@ const Header = () => {
             <h2>BlogsApp</h2>
             <nav>
                 {isLoggedIn && <> <Link to={"/blogs"} >All Blogs</Link>
-                <Link to={"/myBlogs"} >My Blogs</Link> </>}
+                <Link to={"/myBlogs"} >My Blogs</Link>
+                <Link to={"/blogs/add"} >Add Blog</Link> </>}
 
                 {isLoggedIn && <Link to={"/login"} onClick={()=>dispatch(authActions.logout())}>Logout</Link>}
 

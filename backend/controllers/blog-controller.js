@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 export const getAllBlogs = async(req, res, next) => {
     let blogs;
     try{
-        blogs = await Blog.find();
+        blogs = await Blog.find().populate('user');
     }catch(err){
         return console.log(err)
     }
@@ -50,13 +50,14 @@ export const addBlog = async(req, res, next) => {
 }
 
 export const updateBlog = async(req, res, next) => {
-    const {title, description} = req.body;
+    const {title, description, image} = req.body;
     const blogId = req.params.id;
     let blog;
     try{
         blog = await Blog.findByIdAndUpdate(blogId,{
             title,
-            description
+            description,
+            image,
         })
     }catch(err){
         return console.log(err)
@@ -117,5 +118,5 @@ export const getByUserId = async(req, res, next) => {
         return res.status(404).json({message: "No Blog Found"})
     }
 
-    return res.status(200).json({blogs:userBlogs})
+    return res.status(200).json({user: userBlogs})
 }
