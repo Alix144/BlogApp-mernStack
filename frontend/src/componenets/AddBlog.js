@@ -1,10 +1,13 @@
 import axios from "axios"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const AddBlog = () => {
     const [title, setTitle] = useState("")
     const [des, setDes] = useState("")
     const [img, setImg] = useState("")
+
+    const navigate = useNavigate()
 
     const sendRequest = async() => {
         const res = await axios.post("http://localhost:4000/api/blog/add", {
@@ -19,7 +22,7 @@ const AddBlog = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        sendRequest().then(data=>console.log(data))
+        sendRequest().then(navigate("/blogs"))
     }
 
     return ( 

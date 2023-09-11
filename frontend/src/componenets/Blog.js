@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import deleteIcon from '../images/delete.png';
 import editIcon from '../images/edit.png';
+import axios from 'axios';
 
 const Blog = ({title, description, image, userName, isUser, id}) => {
 
@@ -10,8 +11,14 @@ const Blog = ({title, description, image, userName, isUser, id}) => {
         navigate(`/myBlogs/${id}`)
     }
 
-    const handleDelete = () => {
+    const deleteRequest = async() => {
+        const res = axios.delete(`http://localhost:4000/api/blog/${id}`).catch(err=>console.log(err))
+        const data = await res.data;
+        return data;
+    }
 
+    const handleDelete = () => {
+        deleteRequest().then(()=>navigate("/")).then(()=>navigate("/blogs"))
     }
 
     return ( 
