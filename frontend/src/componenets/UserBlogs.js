@@ -14,13 +14,14 @@ const UserBlogs = () => {
 
     useEffect(() => {
         sendRequest().then(data=>setUser(data.user))
-    }, [])
+    },[])
     
     console.log(user)
     return ( 
         <div>
             {user && user.blogs && user.blogs.map((blog, index)=>{
-                return <Blog key={index} isUser={true} id={blog._id} title={blog.title} description={blog.description} imageURL={blog.image} userName={user.name} />
+                console.log(!user.blogs)
+                return <Blog key={index} isUser={true} id={blog._id} title={blog.title} description={blog.description} image={blog.image} userName={user.name} />
             })}
         </div>
      );

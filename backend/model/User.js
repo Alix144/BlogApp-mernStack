@@ -13,9 +13,7 @@ const userSchema = new Schema({
         unique: true
     },
     password: {
-        type: String,
-        
-        minlength: 6
+        type: String
     },
     blogs:[{type: mongoose.Types.ObjectId,
             ref:"Blog",

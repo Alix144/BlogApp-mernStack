@@ -1,12 +1,13 @@
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from 'axios';
 import { useDispatch } from "react-redux";
 import {authActions} from '../store/index';
 
 const Signup = () => {
     const dispatch = useDispatch();
-    
+    const navigate = useNavigate();
+
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -24,7 +25,7 @@ const Signup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        sendRequest().then(()=>dispatch(authActions.login())).then((data) => console.log(data))
+        sendRequest().then((data)=>localStorage.setItem("userId", data.user._id)).then(()=>dispatch(authActions.login())).then(()=> navigate("/blogs")).then(data=> console.log(data))
     }
 
     return ( 

@@ -18,7 +18,7 @@ const Blog = ({title, description, image, userName, isUser, id}) => {
     }
 
     const handleDelete = () => {
-        deleteRequest().then(()=>navigate("/")).then(()=>navigate("/blogs"))
+        deleteRequest().then(()=>navigate("/")).then(()=>navigate("/myBlogs"))
     }
 
     return ( 
@@ -34,7 +34,9 @@ const Blog = ({title, description, image, userName, isUser, id}) => {
                 </div>}
             </div>
             <h5>{title}</h5>
-            <img src={image} alt="img" className='postImg'/>
+            <div className="postImg">
+                <img src={image} alt="img" />
+            </div>
             <p>{description}</p>
         </div>
      );
