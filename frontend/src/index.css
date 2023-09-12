@@ -15,9 +15,12 @@ header{
   margin: 0 auto;
   margin-top: 10px;
   width: 60%;
+  min-width: 460px; 
+  /* 820px */
   border-bottom: 1px solid #3f978d;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 a{
@@ -40,7 +43,6 @@ form{
   flex-direction: column;
   text-align: center;
   justify-content: space-around;
-
 }
 
 form div{
@@ -102,6 +104,8 @@ form a button{
   align-items: center;
 }
 
+
+
 .pic{
   margin-right: 5px;
   width: 50px;
@@ -144,4 +148,53 @@ form a button{
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+
+.hamburger{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.close{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .card{
+    width: 80%;
+  }
+
+  .postImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .postImg img{
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+  }
+
+  form{
+    margin: 50px auto;
+    min-width: 70%;
+  }
+
+  header{
+    min-width: 0;
+    width: 90%;
+  }
+
+  nav{
+    display: none;
+  }
+
+  .hamburger{
+    display: block;
+  }
 }
